@@ -222,3 +222,307 @@
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhirendra Jaisi — Portfolio & Ventures</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { 400: '#FACC15', 500: '#EAB308', 600: '#CA8A04' },
+                        dark: { base: '#0B0F17', surface: '#111827', card: '#1F2937' }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0B0F17; color: #F3F4F6; overflow-x: hidden; }
+        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #111827; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #374151; border-radius: 4px; }
+        .glow-border { box-shadow: 0 0 25px rgba(234, 179, 8, 0.2); border: 1px solid rgba(234, 179, 8, 0.4); }
+        .modal-blur { backdrop-filter: blur(12px); }
+        canvas { touch-action: none; }
+    </style>
+</head>
+<body class="font-sans antialiased custom-scrollbar">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-gray-800 bg-dark-surface/80 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-500 to-amber-600 flex items-center justify-center text-dark-base font-black text-xl shadow-lg">
+                    DJ
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg text-gray-100 tracking-wide">DHIRENDRA JAISI</h1>
+                    <p class="text-xs text-gold-500 font-medium">BBA Student & Entrepreneur</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#about" class="text-xs font-semibold hover:text-gold-400 transition-colors">About</a>
+                <a href="#projects" class="text-xs font-semibold bg-gold-500/10 hover:bg-gold-500/20 text-gold-400 border border-gold-500/30 px-4 py-2 rounded-xl transition-all">
+                    Projects
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION - PHOTO 1 WITH 3D ANIMATION -->
+    <section class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Photo 1 Container -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md bg-dark-surface p-4 rounded-3xl glow-border">
+                    <div id="hero-3d-canvas" class="w-full h-80 rounded-2xl bg-dark-base overflow-hidden relative"></div>
+                    <div class="absolute inset-0 flex items-center justify-center p-6">
+                        <div class="w-56 h-72 rounded-2xl overflow-hidden border-2 border-gold-500/50 shadow-2xl relative group">
+                            <img src="profile.jpg" alt="Dhirendra Jaisi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.src='https://via.placeholder.com/400x500?text=Dhirendra+Jaisi'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                                <div>
+                                    <h3 class="text-white font-bold text-lg">Dhirendra Jaisi</h3>
+                                    <p class="text-xs text-gold-400"><i class="fa-solid fa-location-dot mr-1"></i> Surkhet, Nepal</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Intro -->
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-lightbulb"></i> Think . Build . Create
+                </div>
+                <h2 class="text-4xl sm:text-6xl font-extrabold text-white font-serif leading-tight">
+                    Building Sustainable <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-amber-600">Local Ventures</span>
+                </h2>
+                <p class="text-gray-400 text-base sm:text-lg leading-relaxed max-w-2xl">
+                    Welcome to my official portfolio. I specialize in identifying regional supply chain gaps and building structured B2B & B2C business models in Karnali Province, Nepal.
+                </p>
+                <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                    <a href="#about" class="px-8 py-4 rounded-xl bg-gradient-to-r from-gold-500 to-amber-600 hover:from-gold-400 hover:to-amber-500 text-dark-base font-bold text-sm tracking-wide transition-all shadow-lg shadow-gold-500/20">
+                        Read My Story
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 2: WHO I AM & VISION - PHOTO 2 WITH 3D RING ANIMATION -->
+    <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-gray-800">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Text Content -->
+            <div class="lg:col-span-7 space-y-6">
+                <div>
+                    <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full border border-emerald-500/30">Entrepreneurial Journey</span>
+                    <h3 class="text-3xl sm:text-4xl font-extrabold text-white font-serif mt-3">Who I Am</h3>
+                </div>
+                
+                <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                    I am <b>Dhirendra Jaisi</b>, a BBA student from Nepal with a strong interest in entrepreneurship, business, marketing, technology, and product development.
+                </p>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    I am not focused on simply building a career around a traditional job. My long-term goal is to identify real problems, build practical solutions, create strong brands, and develop businesses that can grow from Nepal to the global market.
+                </p>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Currently, I am exploring and validating different business ideas, including custom branded water bottles, agriculture supply and processing, and future manufacturing ventures. I believe a good business starts with understanding a real problem, validating the market, starting small, and improving through experience.
+                </p>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Alongside my studies, I am developing skills in digital marketing, branding, content creation, business strategy, and technology.
+                </p>
+
+                <!-- My Vision Box -->
+                <div class="p-6 bg-dark-card rounded-2xl border border-gray-800 space-y-2">
+                    <div class="text-gold-400 font-bold text-base uppercase tracking-wide flex items-center gap-2">
+                        <i class="fa-solid fa-compass"></i> My Vision
+                    </div>
+                    <p class="text-white font-serif text-lg italic">
+                        "Start local. Solve real problems. Build strong brands. Think global."
+                    </p>
+                    <p class="text-xs text-gray-400 pt-1">
+                        I am at the beginning of my entrepreneurial journey, but I am committed to learning, experimenting, and turning ideas into real businesses step by step.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Photo 2 Container with 3D Ring Canvas -->
+            <div class="lg:col-span-5 flex justify-center">
+                <div class="relative w-full max-w-md bg-dark-surface p-4 rounded-3xl glow-border">
+                    <div id="about-3d-canvas" class="w-full h-[420px] rounded-2xl bg-dark-base overflow-hidden relative"></div>
+                    <div class="absolute inset-0 flex items-center justify-center p-6">
+                        <div class="w-60 h-80 rounded-2xl overflow-hidden border-2 border-emerald-500/50 shadow-2xl relative group">
+                            <img src="about.jpg" alt="Dhirendra Jaisi Simplicity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" onError="this.src='https://via.placeholder.com/400x500?text=Dhirendra+Jaisi'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                                <div>
+                                    <span class="text-xs font-bold bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30">Simplicity & Growth</span>
+                                    <h4 class="text-white font-bold text-sm mt-1">Dhirendra Jaisi</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 3: B2B PROJECTS DISPLAY -->
+    <main id="projects" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16 border-t border-gray-800">
+        
+        <div class="text-center max-w-2xl mx-auto">
+            <h3 class="text-3xl font-extrabold text-white font-serif">Featured B2B Projects</h3>
+            <p class="text-xs text-gray-400 mt-2">Interactive 3D prototypes and business models</p>
+        </div>
+
+        <!-- PROJECT 1: SMART AGRICULTURE -->
+        <div class="bg-dark-surface rounded-3xl p-6 sm:p-8 border border-gray-800 glow-border">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="lg:col-span-7 bg-dark-base rounded-2xl p-4 relative border border-gray-800">
+                    <div class="absolute top-4 left-4 z-10 text-xs bg-dark-surface/80 backdrop-blur-md px-3 py-1 rounded-lg border border-gray-700 text-gold-400 font-semibold">
+                        <i class="fa-solid fa-cube mr-1"></i> Interactive 3D Grain Crate
+                    </div>
+                    <div id="agri-canvas" class="w-full h-[350px] rounded-xl cursor-grab"></div>
+                </div>
+                <div class="lg:col-span-5 space-y-4">
+                    <span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 text-xs font-bold rounded-full border border-emerald-500/30">Agriculture & Food Processing</span>
+                    <h4 class="text-2xl font-bold text-white">Smart Local Agriculture Supply</h4>
+                    <p class="text-xs text-gray-300 leading-relaxed">Connecting local farmers directly with markets through grading, processing, packaging, and branding in Surkhet.</p>
+                    <button onclick="openAgriModal()" class="w-full py-3 bg-gradient-to-r from-gold-500 to-amber-600 text-dark-base font-bold text-xs rounded-xl">View Details</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- MODAL -->
+    <div id="agri-modal" class="fixed inset-0 z-50 hidden overflow-y-auto modal-blur bg-black/80 p-6">
+        <div class="max-w-3xl mx-auto bg-dark-surface rounded-3xl border border-gray-700 p-6 my-10">
+            <h3 class="text-xl font-bold text-white mb-2">Smart Local Agriculture Model</h3>
+            <p class="text-xs text-gray-400 mb-4">Farmer Collection → Quality Check → Packaging → B2B Supply</p>
+            <button onclick="closeAgriModal()" class="px-4 py-2 bg-gray-800 text-xs text-white rounded-lg">Close</button>
+        </div>
+    </div>
+
+    <!-- THREE.JS 3D SCRIPTS -->
+    <script>
+        function openAgriModal() { document.getElementById('agri-modal').classList.remove('hidden'); }
+        function closeAgriModal() { document.getElementById('agri-modal').classList.add('hidden'); }
+
+        // 1. HERO 3D PARTICLE ANIMATION
+        const heroContainer = document.getElementById('hero-3d-canvas');
+        const heroScene = new THREE.Scene();
+        const heroCamera = new THREE.PerspectiveCamera(50, heroContainer.clientWidth / heroContainer.clientHeight, 0.1, 1000);
+        heroCamera.position.z = 5;
+
+        const heroRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        heroRenderer.setSize(heroContainer.clientWidth, heroContainer.clientHeight);
+        heroContainer.appendChild(heroRenderer.domElement);
+
+        const particlesGeo = new THREE.BufferGeometry();
+        const count = 300;
+        const posArray = new Float32Array(count * 3);
+        for(let i=0; i<count*3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 10;
+        }
+        particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+        const particlesMat = new THREE.PointsMaterial({ size: 0.05, color: 0xFACC15 });
+        const particlesMesh = new THREE.Points(particlesGeo, particlesMat);
+        heroScene.add(particlesMesh);
+
+        function animateHero() {
+            requestAnimationFrame(animateHero);
+            particlesMesh.rotation.y += 0.002;
+            particlesMesh.rotation.x += 0.001;
+            heroRenderer.render(heroScene, heroCamera);
+        }
+        animateHero();
+
+        // 2. ABOUT SECTION 3D RING ANIMATION
+        const aboutContainer = document.getElementById('about-3d-canvas');
+        const aboutScene = new THREE.Scene();
+        const aboutCamera = new THREE.PerspectiveCamera(45, aboutContainer.clientWidth / aboutContainer.clientHeight, 0.1, 1000);
+        aboutCamera.position.z = 6;
+
+        const aboutRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        aboutRenderer.setSize(aboutContainer.clientWidth, aboutContainer.clientHeight);
+        aboutContainer.appendChild(aboutRenderer.domElement);
+
+        const ringGeo = new THREE.TorusGeometry(2, 0.05, 16, 100);
+        const ringMat = new THREE.MeshBasicMaterial({ color: 0x10B981, wireframe: true });
+        const ringMesh = new THREE.Mesh(ringGeo, ringMat);
+        aboutScene.add(ringMesh);
+
+        function animateAbout() {
+            requestAnimationFrame(animateAbout);
+            ringMesh.rotation.x += 0.005;
+            ringMesh.rotation.y += 0.01;
+            aboutRenderer.render(aboutScene, aboutCamera);
+        }
+        animateAbout();
+
+        // 3. AGRI 3D CRATE MODEL
+        const agriContainer = document.getElementById('agri-canvas');
+        const agriScene = new THREE.Scene();
+        agriScene.background = new THREE.Color(0x0B0F17);
+
+        const agriCamera = new THREE.PerspectiveCamera(45, agriContainer.clientWidth / agriContainer.clientHeight, 0.1, 1000);
+        agriCamera.position.set(0, 2.5, 6);
+
+        const agriRenderer = new THREE.WebGLRenderer({ antialias: true });
+        agriRenderer.setSize(agriContainer.clientWidth, agriContainer.clientHeight);
+        agriContainer.appendChild(agriRenderer.domElement);
+
+        agriScene.add(new THREE.AmbientLight(0xffffff, 0.8));
+        const dirLight = new THREE.DirectionalLight(0xFACC15, 1.2);
+        dirLight.position.set(5, 8, 5);
+        agriScene.add(dirLight);
+
+        const crateGroup = new THREE.Group();
+        const crate = new THREE.Mesh(
+            new THREE.BoxGeometry(2.2, 1.1, 1.6),
+            new THREE.MeshStandardMaterial({ color: 0x8B4513, roughness: 0.8 })
+        );
+        crate.position.y = -0.5;
+        crateGroup.add(crate);
+
+        const sackGeo = new THREE.SphereGeometry(0.65, 16, 16);
+        sackGeo.scale(1, 1.2, 0.9);
+        const sackMat = new THREE.MeshStandardMaterial({ color: 0xD2B48C, roughness: 0.9 });
+        const s1 = new THREE.Mesh(sackGeo, sackMat);
+        s1.position.set(-0.5, 0.2, 0);
+        crateGroup.add(s1);
+
+        agriScene.add(crateGroup);
+
+        function animateAgri() {
+            requestAnimationFrame(animateAgri);
+            crateGroup.rotation.y += 0.005;
+            agriRenderer.render(agriScene, agriCamera);
+        }
+        animateAgri();
+    </script>
+</body>
+</html>
